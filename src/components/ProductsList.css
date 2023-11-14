@@ -1,0 +1,25 @@
+.productsListContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+}
+
+.productCard {
+    width: 400px;
+    /* border: 1px solid red; */
+}
+
+.productCard img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.productList_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 80%;
+}

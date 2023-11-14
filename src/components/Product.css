@@ -1,0 +1,25 @@
+.selected_card {
+    width: 100%;
+    display: flex;
+}
+
+.imgs_container {
+    width: 50%;
+    /* border: 1px solid red; */
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.imgs_container img {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.description_container {
+    padding: 1.5rem;
+}
