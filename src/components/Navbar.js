@@ -20,10 +20,13 @@ export default function Navbar({ isLogin, setIsLogin }) {
                         <Link to='/cart' className='cart'>
                             <span class="cart-icon">🛒</span>
                             {
-                               items.length !== 0 &&  <span class="cart-number">{items.length}</span>
+                                items.length !== 0 && <span class="cart-number">{items.length}</span>
                             }
                         </Link>
-                        <a onClick={() => setIsLogin(false)}>Logout</a>
+                        <a onClick={() => {
+                            setIsLogin(false)
+                            sessionStorage.removeItem("isLogin");
+                        }}>Logout</a>
                     </>
                     : <a>Login</a>
                 }

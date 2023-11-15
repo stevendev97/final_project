@@ -16,6 +16,7 @@ export default function Login({ onSetIsLogin }) {
         if (userName === userInfo.name && password === userInfo.password) {
             console.log("Login success")
             onSetIsLogin(true)
+            sessionStorage.setItem("isLogin", true);
         } else {
             console.log("Login faild")
             onSetIsLogin(false)

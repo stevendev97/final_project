@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Login from "./components/Login";
@@ -15,8 +15,20 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState()
 
+  useEffect(() => {
+    if (sessionStorage.getItem("isLogin")) {
+      setIsLogin(true)
+    }
+  },[])
+
+  // if (localStorage.getItem("isLogin")) {
+  //   setIsLogin(true)
+  // }
+
+  const basename = process.env.NODE_ENV === 'production' ? '/final_project' : '';
+
   return (
-    <Router>
+    <Router basename={basename}>
       <ProductContext.Provider value={{selectedProduct, setSelectedProduct }}>
         <div className="App">
           <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />

@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProductContext } from './ProductContext'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from './actions/cartAction';
+import { useNavigate } from "react-router-dom";
 import "./Product.css"
 
 
@@ -9,6 +10,7 @@ function Product() {
     const { selectedProduct, setSelectedProduct } = useContext(ProductContext)
     const items = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleAddToCart = item => {
         dispatch(addToCart(item));
@@ -18,9 +20,12 @@ function Product() {
         dispatch(removeFromCart(itemId));
     };
 
+    useEffect(() => {
+        if (!selectedProduct) {
+            navigate('/')
+        } 
+    }, [])
 
-    // console.log(selectedProduct, "This data is in individual product page")
-    console.log(items, "From Redux store")
     return (
         <div className='selected_card'>
             <div className='imgs_container'>

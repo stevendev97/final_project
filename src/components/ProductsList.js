@@ -11,7 +11,7 @@ export default function ProductsList() {
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
-            .then(data => setProducts(data.products.splice(0, 10)));
+            .then(data => setProducts(data.products.splice(0, 20)));
     }, [])
 
 
